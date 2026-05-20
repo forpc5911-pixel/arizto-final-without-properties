@@ -1,0 +1,1 @@
+# arizto-final-without-properties
