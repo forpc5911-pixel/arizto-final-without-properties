@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Exceed | Scott Jarrett &amp; Stuart Lougher | New Zealand Real Estate</title>
+<meta name="description" content="Scott Jarrett &amp; Stuart Lougher — Team Exceed. Premium real estate specialists in Whakatāne, Ōhope &amp; Bay of Plenty, New Zealand. No upfront costs, ever. Licensed REAA 2008.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#F5F0E8;--sand-mid:#EDE6D6;--sand-dark:#D4C9B0;
+  --forest:#2A5C45;--forest-light:#3A7A5E;--forest-pale:#EAF2EC;
+  --clay:#C4602A;--clay-pale:#F9EDE4;
+  --ink:#1A1A1A;--ink-mid:#4A4A4A;--ink-soft:#7A7A7A;
+  --white:#FFFFFF;--card-radius:16px;
+  --font-sans:'DM Sans',sans-serif;--font-serif:'Playfair Display',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--sand-dark);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:var(--font-serif);font-size:1.1rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-.02em;line-height:1.2}
+.nav-logo span{color:var(--forest)}
+.nav-logo small{display:block;font-family:var(--font-sans);font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:1px}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--ink-mid);font-size:.875rem;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--forest)}
+.nav-cta{background:var(--forest);color:var(--white)!important;padding:8px 20px;border-radius:8px;font-weight:500!important}
+.nav-cta:hover{background:var(--forest-light)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:101}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+#mobile-menu{display:none;position:fixed;inset:0;z-index:200;background:var(--white);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+#mobile-menu.open{display:flex}
+#mobile-menu a{font-family:var(--font-serif);font-size:1.75rem;color:var(--ink);text-decoration:none;font-weight:600}
+#mobile-menu a:last-child{background:var(--forest);color:var(--white);padding:12px 32px;border-radius:10px;font-family:var(--font-sans);font-size:1rem;font-weight:500}
+.mobile-close{position:absolute;top:1.25rem;right:6%;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+.hero{padding-top:64px;min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.hero-left{padding:6rem 5% 6rem 8%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--forest-pale);color:var(--forest);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:1.5rem}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--forest);border-radius:50%}
+.hero h1{font-family:var(--font-serif);font-size:clamp(2.8rem,4.5vw,4rem);font-weight:600;line-height:1.15;letter-spacing:-.02em;color:var(--ink);margin-bottom:1.25rem}
+.hero h1 em{font-style:italic;color:var(--forest)}
+.hero-sub{font-size:1.05rem;color:var(--ink-mid);max-width:420px;margin-bottom:2.5rem;font-weight:300;line-height:1.7}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--forest);color:var(--white);padding:14px 28px;border-radius:10px;font-family:var(--font-sans);font-size:.9rem;font-weight:500;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s}
+.btn-primary:hover{background:var(--forest-light);transform:translateY(-1px)}
+.btn-secondary{color:var(--ink);font-size:.9rem;font-weight:400;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1.5px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
+.btn-secondary:hover{color:var(--forest);border-color:var(--forest)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--sand-dark);flex-wrap:wrap}
+.hero-stat-num{font-family:var(--font-serif);font-size:1.75rem;font-weight:600;color:var(--ink);line-height:1}
+.hero-stat-num span{color:var(--forest)}
+.hero-stat-label{font-size:.775rem;color:var(--ink-soft);letter-spacing:.03em;margin-top:4px}
+.hero-right{height:100%;min-height:92vh;display:grid;grid-template-rows:1fr 1fr;grid-template-columns:1fr 1fr;gap:10px;padding:74px 5% 20px 10px}
+.hero-img-main{grid-row:1/3;grid-column:1;border-radius:var(--card-radius);overflow:hidden;background:#ddd}
+.hero-img-main img,.hero-img-sm img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.hero-img-sm{border-radius:var(--card-radius);overflow:hidden;background:#ddd;position:relative}
+.hero-agent-name{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);color:#fff;font-size:.7rem;font-weight:500;letter-spacing:.04em;padding:6px 12px;border-radius:100px;text-align:center}
+.team-strip{background:var(--sand);padding:2.5rem 8%;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;border-bottom:1px solid var(--sand-dark)}
+.team-agent{display:flex;align-items:center;gap:1rem}
+.team-agent-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top center;border:2.5px solid var(--forest);flex-shrink:0}
+.team-agent-name{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink);line-height:1.2}
+.team-agent-role{font-size:.75rem;color:var(--ink-soft);letter-spacing:.02em}
+.team-strip-divider{width:1px;height:40px;background:var(--sand-dark)}
+.team-strip-info{font-size:.85rem;color:var(--ink-mid);font-weight:300;line-height:1.6;max-width:360px}
+.team-strip-info strong{color:var(--forest);font-weight:500}
+section{padding:6rem 8%}
+.section-label{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);margin-bottom:.75rem}
+.section-title{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;letter-spacing:-.02em;line-height:1.2;color:var(--ink);margin-bottom:1rem}
+.section-title em{font-style:italic;color:var(--forest)}
+.properties-section{background:var(--sand)}
+.properties-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.filter-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.filter-tab{padding:7px 18px;border-radius:100px;font-size:.825rem;font-weight:400;cursor:pointer;border:1.5px solid var(--sand-dark);background:var(--white);color:var(--ink-mid);transition:all .2s;font-family:var(--font-sans)}
+.filter-tab.active,.filter-tab:hover{background:var(--forest);color:var(--white);border-color:var(--forest)}
+.properties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prop-card{background:var(--white);border-radius:var(--card-radius);overflow:hidden;position:relative;transition:transform .25s,box-shadow .25s;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.prop-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,.13)}
+.prop-img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .4s;background:#e8e2d6}
+.prop-card:hover .prop-img{transform:scale(1.04)}
+.prop-img-wrap{position:relative;overflow:hidden}
+.prop-status{position:absolute;top:14px;left:14px;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+.prop-status.sale{background:var(--forest);color:var(--white)}
+.prop-status.sold{background:var(--ink);color:var(--white)}
+.prop-body{padding:1.25rem;background:var(--white)}
+.prop-price{font-family:var(--font-serif);font-size:1.3rem;font-weight:600;color:var(--ink);margin-bottom:3px;letter-spacing:-.02em}
+.prop-title{font-size:.83rem;font-weight:500;color:var(--ink-mid);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prop-address{font-size:.8rem;color:var(--ink-soft);margin-bottom:1rem;display:flex;align-items:flex-start;gap:4px;line-height:1.4}
+.prop-features{display:flex;gap:1.25rem;padding-top:.85rem;border-top:1px solid var(--sand-mid);flex-wrap:wrap}
+.prop-feat{display:flex;align-items:center;gap:5px;font-size:.8rem;color:var(--ink-mid);font-weight:400;white-space:nowrap}
+.feat-icon{width:15px;height:15px;fill:none;stroke:var(--ink-soft);stroke-width:1.5;flex-shrink:0}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);overflow-y:auto;padding:24px 16px}
+.modal-overlay.open{display:flex;align-items:flex-start;justify-content:center}
+.modal{background:var(--white);border-radius:20px;width:100%;max-width:960px;margin:auto;overflow:hidden;animation:modalIn .25s ease-out}
+@keyframes modalIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.modal-gallery{position:relative;height:480px;background:#111;overflow:hidden}
+.modal-gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s}
+.modal-gallery img.active{opacity:1}
+.gallery-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.3);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;font-size:1.2rem}
+.gallery-btn:hover{background:rgba(255,255,255,.32)}
+.gallery-prev{left:16px}.gallery-next{right:16px}
+.gallery-counter{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.55);backdrop-filter:blur(6px);color:#fff;font-size:.72rem;font-weight:500;padding:5px 14px;border-radius:100px}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:3}
+.modal-close:hover{background:rgba(0,0,0,.8)}
+.modal-body{padding:2.5rem}
+.modal-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.modal-badge{font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+.modal-badge.sale{background:var(--forest);color:var(--white)}
+.modal-badge.sold{background:var(--ink);color:var(--white)}
+.modal-price{font-family:var(--font-serif);font-size:1.8rem;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+.modal-address{font-size:.9rem;color:var(--ink-soft);display:flex;align-items:center;gap:5px;margin-bottom:2rem}
+.modal-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--sand-dark);border:1px solid var(--sand-dark);border-radius:12px;overflow:hidden;margin-bottom:2rem}
+.modal-stat{background:var(--white);padding:1.1rem 1rem;text-align:center}
+.modal-stat-num{font-family:var(--font-serif);font-size:1.3rem;font-weight:600;color:var(--ink);line-height:1}
+.modal-stat-label{font-size:.68rem;color:var(--ink-soft);letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+.modal-desc-title{font-family:var(--font-serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:.75rem}
+.modal-desc{font-size:.95rem;color:var(--ink-mid);line-height:1.8;font-weight:300;margin-bottom:2rem}
+.modal-agent{background:var(--sand);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;margin-bottom:2rem;flex-wrap:wrap}
+.modal-agent-img{width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:top center;border:2.5px solid var(--forest);flex-shrink:0}
+.modal-agent-info-name{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink)}
+.modal-agent-info-role{font-size:.75rem;color:var(--ink-soft)}
+.modal-agent-actions{margin-left:auto;display:flex;gap:.75rem;flex-wrap:wrap}
+.modal-agent-actions a{padding:8px 16px;border-radius:8px;font-size:.82rem;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background .2s,transform .15s;white-space:nowrap}
+.modal-agent-actions a:hover{transform:translateY(-1px)}
+.modal-btn-call{background:var(--forest);color:var(--white)}
+.modal-btn-call:hover{background:var(--forest-light)}
+.modal-btn-wa{background:#25D366;color:var(--white)}
+.modal-btn-wa:hover{background:#20bc5a}
+.modal-enquiry-title{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:1rem}
+.modal-form{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.modal-form input,.modal-form textarea{width:100%;padding:11px 14px;border:1.5px solid var(--sand-dark);border-radius:10px;font-family:var(--font-sans);font-size:.875rem;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s}
+.modal-form input:focus,.modal-form textarea:focus{border-color:var(--forest)}
+.modal-form textarea{grid-column:1/-1;resize:vertical;min-height:90px}
+.modal-form .full{grid-column:1/-1}
+.modal-form-submit{grid-column:1/-1;background:var(--forest);color:var(--white);border:none;padding:13px 28px;border-radius:10px;font-family:var(--font-sans);font-size:.9rem;font-weight:500;cursor:pointer;transition:background .2s;width:100%}
+.modal-form-submit:hover{background:var(--forest-light)}
+.modal-form-success{grid-column:1/-1;text-align:center;padding:1.5rem;background:var(--forest-pale);border-radius:12px;display:none}
+.modal-form-success.show{display:block}
+.modal-form-success p{color:var(--forest);font-weight:500;font-size:.95rem}
+.about-section{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-images{position:relative;height:540px}
+.about-img-main{width:58%;height:430px;object-fit:cover;object-position:top center;border-radius:var(--card-radius);position:absolute;top:0;left:0}
+.about-img-accent{width:52%;height:300px;object-fit:cover;object-position:top center;border-radius:var(--card-radius);position:absolute;bottom:0;right:0;border:6px solid var(--white);box-shadow:0 8px 32px rgba(0,0,0,.1)}
+.about-card-float{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--white);border-radius:12px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.12);text-align:center;min-width:130px;z-index:2}
+.about-card-float .num{font-family:var(--font-serif);font-size:1.8rem;font-weight:600;color:var(--forest)}
+.about-card-float .lbl{font-size:.72rem;color:var(--ink-soft);letter-spacing:.04em}
+.about-text{font-size:1rem;color:var(--ink-mid);margin-bottom:1.5rem;font-weight:300;line-height:1.8}
+.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+.chip{background:var(--forest-pale);color:var(--forest);font-size:.8rem;padding:6px 14px;border-radius:100px;font-weight:500}
+.services-section{background:var(--ink)}
+.services-section .section-label{color:var(--sand-dark)}
+.services-section .section-title{color:var(--white)}
+.services-section .section-title em{color:var(--sand-dark)}
+.services-header{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:3.5rem}
+.services-intro{font-size:1rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.8}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.08);border-radius:var(--card-radius);overflow:hidden}
+.service-item{background:var(--ink);padding:2rem 1.75rem;transition:background .2s}
+.service-item:hover{background:#242424}
+.service-num{font-family:var(--font-serif);font-size:2rem;font-weight:400;color:rgba(255,255,255,.12);line-height:1;margin-bottom:1rem}
+.service-title{font-size:.95rem;font-weight:500;color:var(--white);margin-bottom:.6rem}
+.service-desc{font-size:.825rem;color:rgba(255,255,255,.45);line-height:1.7}
+.appraisal-section{background:var(--sand)}
+.appraisal-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.appraisal-tagline{font-size:1rem;color:var(--ink-mid);font-weight:300;line-height:1.8;margin-bottom:2rem}
+.appraisal-points{list-style:none;display:flex;flex-direction:column;gap:.85rem}
+.appraisal-points li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--ink-mid);font-weight:300;line-height:1.6}
+.appraisal-points li::before{content:'✓';display:flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--forest-pale);color:var(--forest);border-radius:50%;font-size:.75rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.appraisal-form-card{background:var(--white);border-radius:20px;padding:2.5rem;box-shadow:0 4px 40px rgba(0,0,0,.08)}
+.appraisal-form-title{font-family:var(--font-serif);font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+.appraisal-form-sub{font-size:.82rem;color:var(--ink-soft);margin-bottom:1.75rem;font-weight:300}
+.af-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.af-group{display:flex;flex-direction:column;gap:5px}
+.af-group.full{grid-column:1/-1}
+.af-label{font-size:.75rem;font-weight:500;color:var(--ink-mid);letter-spacing:.03em}
+.af-input{padding:11px 14px;border:1.5px solid var(--sand-dark);border-radius:10px;font-family:var(--font-sans);font-size:.875rem;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s;width:100%}
+.af-input:focus{border-color:var(--forest)}
+.af-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A7A7A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.af-submit{grid-column:1/-1;background:var(--forest);color:var(--white);border:none;padding:14px 28px;border-radius:10px;font-family:var(--font-sans);font-size:.9rem;font-weight:500;cursor:pointer;transition:background .2s;width:100%;margin-top:.25rem}
+.af-submit:hover{background:var(--forest-light)}
+.af-success{display:none;text-align:center;padding:2rem 1rem}
+.af-success.show{display:block}
+.af-success-icon{font-size:3rem;margin-bottom:1rem}
+.af-success h3{font-family:var(--font-serif);font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+.af-success p{font-size:.9rem;color:var(--ink-mid);font-weight:300;line-height:1.7}
+.testimonials-section{background:var(--clay-pale)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.testimonial-card{background:var(--white);border-radius:var(--card-radius);padding:1.75rem}
+.testimonial-text{font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.25rem;font-style:italic;font-family:var(--font-serif)}
+.testimonial-author{display:flex;align-items:center;gap:10px}
+.author-avatar-init{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1rem;font-weight:600;flex-shrink:0}
+.author-name{font-size:.85rem;font-weight:500;color:var(--ink)}
+.author-location{font-size:.75rem;color:var(--ink-soft)}
+.cta-section{background:var(--forest);padding:6rem 8%;text-align:center}
+.cta-section .section-label{color:rgba(255,255,255,.6);margin-bottom:1rem;display:block}
+.cta-title{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:600;color:var(--white);letter-spacing:-.02em;margin-bottom:1rem}
+.cta-sub{color:rgba(255,255,255,.65);font-size:1.05rem;font-weight:300;max-width:480px;margin:0 auto 2.5rem;line-height:1.7}
+.btn-white{background:var(--white);color:var(--forest);padding:14px 32px;border-radius:10px;font-family:var(--font-sans);font-size:.9rem;font-weight:500;text-decoration:none;display:inline-block;transition:background .2s}
+.btn-white:hover{background:var(--sand)}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-white-outline{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:14px 32px;border-radius:10px;font-family:var(--font-sans);font-size:.9rem;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s}
+.btn-white-outline:hover{background:rgba(255,255,255,.2)}
+footer{background:#111;padding:4rem 8% 2.5rem;color:rgba(255,255,255,.5)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand{font-family:var(--font-serif);font-size:1.25rem;font-weight:600;color:var(--white);margin-bottom:.75rem}
+.footer-brand span{color:var(--sand-dark)}
+.footer-tagline{font-size:.825rem;line-height:1.7;max-width:240px}
+.footer-col h4{font-size:.8rem;font-weight:500;color:var(--white);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.5rem}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-col ul a:hover{color:rgba(255,255,255,.85)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;font-size:.775rem;flex-wrap:wrap;gap:.75rem}
+.no-sale-badge{background:var(--forest);color:var(--white);font-size:.7rem;font-weight:600;letter-spacing:.06em;padding:5px 14px;border-radius:100px;text-transform:uppercase}
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;z-index:499;width:58px;height:58px;border-radius:50%;background:rgba(37,211,102,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.35);transition:transform .2s;text-decoration:none}
+.whatsapp-btn:hover{transform:scale(1.1)}
+.whatsapp-btn svg{width:28px;height:28px;fill:#fff}
+@media(max-width:1100px){.properties-grid{grid-template-columns:repeat(2,1fr)}.modal-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:5rem 6% 4rem}.services-grid{grid-template-columns:1fr 1fr}.about-section{grid-template-columns:1fr}.about-images{display:none}.services-header{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr 1fr}.footer-top{grid-template-columns:1fr 1fr}.team-strip{gap:1.5rem}.appraisal-inner{grid-template-columns:1fr;gap:3rem}.modal-gallery{height:320px}}
+@media(max-width:600px){section{padding:4rem 5%}.properties-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}nav{padding:0 5%}.nav-links{display:none}.hamburger{display:flex}.footer-top{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr}.hero h1{font-size:2.4rem}.team-strip{flex-direction:column;align-items:flex-start;gap:1.25rem}.team-strip-divider{display:none}.footer-bottom{flex-direction:column;text-align:center}.properties-header{flex-direction:column;align-items:flex-start}.af-grid{grid-template-columns:1fr}.af-group.full{grid-column:1}.af-submit{grid-column:1}.modal-body{padding:1.5rem}.modal-form{grid-template-columns:1fr}.modal-form textarea,.modal-form .full,.modal-form-submit{grid-column:1}.modal-agent{flex-direction:column;align-items:flex-start}.modal-agent-actions{margin-left:0;width:100%}.modal-agent-actions a{flex:1;justify-content:center}.modal-gallery{height:260px}.modal-stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="#" class="nav-logo">Scott <span>&amp;</span> Stuart<small>New Zealand · Arizto Network</small></a>
+  <ul class="nav-links">
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#appraisal" class="nav-cta">Book Appraisal</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div id="mobile-menu" role="dialog">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#properties" onclick="toggleMenu()">Properties</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#testimonials" onclick="toggleMenu()">Stories</a>
+  <a href="#appraisal" onclick="toggleMenu()">Book Appraisal</a>
+</div>
+
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-tag">New Zealand · Arizto Network</div>
+    <h1>Your Local Experts in <em>Bay of Plenty</em> Real Estate</h1>
+    <p class="hero-sub">Scott Jarrett &amp; Stuart Lougher — Team Exceed — bring unrivalled local knowledge and zero upfront cost. Selling or buying is completely risk-free.</p>
+    <div class="hero-actions">
+      <a href="#properties" class="btn-primary">View Listings <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#about" class="btn-secondary">Our Story <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">57<span>+</span></div><div class="hero-stat-label">Properties Sold</div></div>
+      <div><div class="hero-stat-num">25<span>+</span></div><div class="hero-stat-label">Years Experience</div></div>
+      <div><div class="hero-stat-num">$0</div><div class="hero-stat-label">Upfront Cost</div></div>
+    </div>
+  </div>
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-img-main">
+      <img src="https://arizto-assets-prod.s3-ap-southeast-2.amazonaws.com/public/profile-images/34617-1687404758-P1n2hPvjni8pYDh9btwcGMXP0WP5zbJo.jpg" alt="Team Exceed">
+    </div>
+    <div class="hero-img-sm">
+      <img src="images/23_Hawera_Street,_Whakatane/001.jpg" alt="Whakatane Property">
+      <div class="hero-agent-name">Scott Jarrett · Whakatāne</div>
+    </div>
+    <div class="hero-img-sm">
+      <img src="images/12_Haig_Street,_Whakatane/001.jpg" alt="Whakatane Home">
+      <div class="hero-agent-name">Stuart Lougher · Ōhope</div>
+    </div>
+  </div>
+</section>
+
+<div class="team-strip">
+  <div class="team-agent">
+    <img class="team-agent-avatar" src="https://arizto-assets-prod.s3-ap-southeast-2.amazonaws.com/public/profile-images/34617-1687404758-P1n2hPvjni8pYDh9btwcGMXP0WP5zbJo.jpg" alt="Scott Jarrett">
+    <div><div class="team-agent-name">Scott Jarrett</div><div class="team-agent-role">Licensed Salesperson · REAA 2008</div></div>
+  </div>
+  <div class="team-strip-divider"></div>
+  <div class="team-agent">
+    <img class="team-agent-avatar" src="https://arizto-assets-prod.s3-ap-southeast-2.amazonaws.com/public/profile-images/34617-1687404758-P1n2hPvjni8pYDh9btwcGMXP0WP5zbJo.jpg" alt="Stuart Lougher">
+    <div><div class="team-agent-name">Stuart Lougher</div><div class="team-agent-role">Licensed Salesperson · REAA 2008</div></div>
+  </div>
+  <div class="team-strip-divider"></div>
+  <div class="team-strip-info">
+    <strong>Team Exceed</strong> — Whakatāne / Ōhope / Edgecumbe.<br>
+    Combined 25+ years experience. Awards for achievement in sales.<br>
+    <strong>027 493 8019</strong> · team.exceed@arizto.co.nz
+  </div>
+</div>
+
+<section class="properties-section" id="properties">
+  <div class="properties-header">
+    <div>
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Our <em>Listings</em></h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="switchTab('active',this)">My Listings (6)</button>
+      <button class="filter-tab" onclick="switchTab('sold',this)">My Sold Listings (57)</button>
+    </div>
+  </div>
+  <div class="properties-grid" id="grid-active"></div>
+  <div class="properties-grid" id="grid-sold" style="display:none"></div>
+</section>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modal">
+    <div class="modal-gallery" id="modal-gallery">
+      <button class="gallery-btn gallery-prev" onclick="galleryNav(-1)">&#8592;</button>
+      <button class="gallery-btn gallery-next" onclick="galleryNav(1)">&#8594;</button>
+      <div class="gallery-counter" id="gallery-counter">1 / 1</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-meta">
+        <span class="modal-badge" id="modal-badge">For Sale</span>
+        <span class="modal-price" id="modal-price"></span>
+      </div>
+      <div class="modal-address" id="modal-address">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span></span>
+      </div>
+      <div class="modal-stats" id="modal-stats"></div>
+      <div class="modal-desc-title">About this property</div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-agent">
+        <img class="modal-agent-img" src="https://arizto-assets-prod.s3-ap-southeast-2.amazonaws.com/public/profile-images/34617-1687404758-P1n2hPvjni8pYDh9btwcGMXP0WP5zbJo.jpg" alt="Team Exceed">
+        <div>
+          <div class="modal-agent-info-name">Team Exceed</div>
+          <div class="modal-agent-info-role">Scott Jarrett &amp; Stuart Lougher · Whakatāne / Ōhope / Edgecumbe</div>
+        </div>
+        <div class="modal-agent-actions">
+          <a href="tel:0274938019" class="modal-btn-call">📞 027 493 8019</a>
+          <a href="https://wa.me/64274938019" class="modal-btn-wa" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="modal-enquiry-title">Send an Enquiry</div>
+      <div class="modal-form">
+        <input type="text" placeholder="Your name" id="mf-name">
+        <input type="email" placeholder="Email address" id="mf-email">
+        <input type="tel" placeholder="Phone number" class="full" id="mf-phone">
+        <textarea placeholder="I'd like more information about this property." id="mf-msg"></textarea>
+        <button class="modal-form-submit" onclick="submitEnquiry()">Send Enquiry →</button>
+        <div class="modal-form-success" id="mf-success">
+          <p>✅ Thanks! We'll be in touch shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="about-section">
+    <div class="about-images">
+      <img class="about-img-main" src="https://arizto-assets-prod.s3-ap-southeast-2.amazonaws.com/public/profile-images/34617-1687404758-P1n2hPvjni8pYDh9btwcGMXP0WP5zbJo.jpg" alt="Team Exceed">
+      <img class="about-img-accent" src="images/111_Otarawairere_Road,_Ohope/001.jpg" alt="Whakatane">
+      <div class="about-card-float"><div class="num">57+</div><div class="lbl">Properties Sold</div></div>
+    </div>
+    <div class="about-content">
+      <span class="section-label">About the Team</span>
+      <h2 class="section-title">Born &amp; Raised in <em>Whakatāne</em></h2>
+      <p class="about-text">Scott and Stuart's combined years in the industry make them the most experienced agents in our district. When it comes to skillsets required to perform effectively — customer relations, negotiating a sale, qualifying buyers — many agents, despite some time in the industry, are still learning what is just instinctive to this team.</p>
+      <p class="about-text">Both are well known in the community and have contributed meaningfully. Stuart was chair of the Whakatane Community Patrol for 10 years, and Scott served 12 years on the District Council — third generation of his family to do so. Scott is still active in Theatre Whakatane, on committee and in productions.</p>
+      <p class="about-text">When working with these guys, there is a genuine element of trust; they communicate well, and both have received notable awards for achievement in sales.</p>
+      <div class="about-chips">
+        <span class="chip">25+ Years Experience</span>
+        <span class="chip">Award-Winning</span>
+        <span class="chip">Whakatāne Locals</span>
+        <span class="chip">Community Leaders</span>
+        <span class="chip">No Upfront Costs</span>
+        <span class="chip">Licensed REAA 2008</span>
+      </div>
+      <a href="#appraisal" class="btn-primary" style="display:inline-flex">Get Free Appraisal <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">A <em>Smarter</em> Way to Sell</h2>
+    </div>
+    <p class="services-intro">Arizto's model removes the traditional barriers — no upfront marketing fees, transparent commissions, and dedicated local expertise that gives your home the attention it deserves.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-item"><div class="service-num">01</div><div class="service-title">No Upfront Costs</div><div class="service-desc">Zero marketing fees until your property sells. Total financial peace of mind from day one.</div></div>
+    <div class="service-item"><div class="service-num">02</div><div class="service-title">Transparent Pricing</div><div class="service-desc">Fair, clear commission structure. No hidden fees, no surprises — just honest, professional service.</div></div>
+    <div class="service-item"><div class="service-num">03</div><div class="service-title">Digital-First Marketing</div><div class="service-desc">Professional photography, high-reach digital listings, and targeted campaigns reaching motivated buyers.</div></div>
+    <div class="service-item"><div class="service-num">04</div><div class="service-title">Local Expertise</div><div class="service-desc">Deep roots in Whakatāne, Ōhope, and Edgecumbe. We know every street, every suburb, every opportunity.</div></div>
+    <div class="service-item"><div class="service-num">05</div><div class="service-title">Proven Negotiators</div><div class="service-desc">25+ combined years of negotiation experience. We get you the best price with confidence.</div></div>
+    <div class="service-item"><div class="service-num">06</div><div class="service-title">Free Property Appraisal</div><div class="service-desc">Understand your property's true market value with a comprehensive, obligation-free appraisal.</div></div>
+  </div>
+</section>
+
+<section class="appraisal-section" id="appraisal">
+  <div class="appraisal-inner">
+    <div class="appraisal-left">
+      <span class="section-label">Free Appraisal</span>
+      <h2 class="section-title">Know Your Home's <em>True Value</em></h2>
+      <p class="appraisal-tagline">Get a comprehensive, no-obligation property appraisal from Whakatāne's most experienced team. We'll give you an honest assessment and a clear picture of what your property could achieve in today's market.</p>
+      <ul class="appraisal-points">
+        <li>Comprehensive market analysis for your area</li>
+        <li>Zero cost, zero obligation — completely risk-free</li>
+        <li>Honest, data-driven pricing recommendations</li>
+        <li>Strategic advice on maximising your sale price</li>
+        <li>Full digital marketing plan included</li>
+      </ul>
+    </div>
+    <div>
+      <div class="appraisal-form-card">
+        <div class="appraisal-form-title">Book Your Free Appraisal</div>
+        <div class="appraisal-form-sub">We'll be in touch within 24 hours</div>
+        <div class="af-grid" id="af-form">
+          <div class="af-group"><label class="af-label">First Name</label><input class="af-input" type="text" placeholder="Jane" id="af-fname"></div>
+          <div class="af-group"><label class="af-label">Last Name</label><input class="af-input" type="text" placeholder="Smith" id="af-lname"></div>
+          <div class="af-group full"><label class="af-label">Email Address</label><input class="af-input" type="email" placeholder="jane@example.com" id="af-email"></div>
+          <div class="af-group full"><label class="af-label">Phone Number</label><input class="af-input" type="tel" placeholder="027 XXX XXXX" id="af-phone"></div>
+          <div class="af-group full"><label class="af-label">Property Address</label><input class="af-input" type="text" placeholder="12 Example Street, Whakatane" id="af-addr"></div>
+          <div class="af-group full"><label class="af-label">Are You Looking to…</label>
+            <select class="af-input af-select" id="af-intent">
+              <option>Sell my property</option><option>Buy a property</option><option>Both buy and sell</option><option>Just exploring my options</option>
+            </select>
+          </div>
+          <button class="af-submit" onclick="submitAppraisal()">Request Free Appraisal →</button>
+        </div>
+        <div class="af-success" id="af-success">
+          <div class="af-success-icon">🎉</div>
+          <h3>Appraisal Booked!</h3>
+          <p>Thank you. Scott or Stuart will be in touch within 24 hours to arrange your free property appraisal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section" id="testimonials">
+  <div class="section-label">Client Stories</div>
+  <h2 class="section-title">What Our Clients <em>Say</em></h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div>⭐⭐⭐⭐⭐</div>
+      <p class="testimonial-text">"Scott and Stuart are absolute professionals. They guided us through the whole process seamlessly and got us a fantastic price for our Whakatane home. Couldn't recommend them more highly."</p>
+      <div class="testimonial-author"><div class="author-avatar-init" style="background:var(--forest-pale);color:var(--forest)">MJ</div><div><div class="author-name">Mark &amp; Jenny T.</div><div class="author-location">Whakatane</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <div>⭐⭐⭐⭐⭐</div>
+      <p class="testimonial-text">"The no upfront cost model was what first attracted us, but it was the service that kept us. Scott is always available, always honest, and always working in our best interests."</p>
+      <div class="testimonial-author"><div class="author-avatar-init" style="background:var(--clay-pale);color:var(--clay)">SB</div><div><div class="author-name">Sarah B.</div><div class="author-location">Ōhope Beach</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <div>⭐⭐⭐⭐⭐</div>
+      <p class="testimonial-text">"Stuart's local knowledge is second to none. He knew exactly what buyers in Edgecumbe were looking for and we sold in record time. Excellent communication throughout."</p>
+      <div class="testimonial-author"><div class="author-avatar-init" style="background:var(--sand-mid);color:var(--ink-mid)">RL</div><div><div class="author-name">Rob L.</div><div class="author-location">Edgecumbe</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <span class="section-label">Ready to Start?</span>
+  <h2 class="cta-title">Let's Talk About Your Property</h2>
+  <p class="cta-sub">Whether you're buying, selling, or just exploring — we'd love to hear from you. No pressure, no obligation.</p>
+  <div class="cta-btns">
+    <a href="#appraisal" class="btn-white">Book Free Appraisal</a>
+    <a href="tel:0274938019" class="btn-white-outline">📞 027 493 8019</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Team <span>Exceed</span></div>
+      <p class="footer-tagline">Scott Jarrett &amp; Stuart Lougher · Whakatāne / Ōhope / Edgecumbe · Licensed REAA 2008 · Arizto Network</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul><li><a href="#properties">Properties</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#testimonials">Stories</a></li><li><a href="#appraisal">Book Appraisal</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul><li><a href="tel:0274938019">027 493 8019</a></li><li><a href="mailto:team.exceed@arizto.co.nz">team.exceed@arizto.co.nz</a></li><li><a href="https://www.arizto.co.nz/our-people/profile/scott-jarrett/" target="_blank">View on Arizto</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="https://www.arizto.co.nz/terms-and-conditions/" target="_blank">Terms &amp; Conditions</a></li><li><a href="https://www.arizto.co.nz/privacy-policy/" target="_blank">Privacy Policy</a></li><li><a href="https://www.arizto.co.nz/guidance-and-complaints/" target="_blank">REA Guidance</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Team Exceed · Scott Jarrett &amp; Stuart Lougher · Arizto Ltd</span>
+    <span class="no-sale-badge">No Upfront Cost · Ever</span>
+  </div>
+</footer>
+
+<a class="whatsapp-btn" href="https://wa.me/64274938019" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
